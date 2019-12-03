@@ -13,5 +13,7 @@
         adress VARCHAR(512),
         phone_number VARCHAR(16)
     )");
+
+    echo ".$_POST[user].",".$_POST[password].",".$_POST[name].",".$_POST[last_name].",".$_POST[sexe].",".$_POST[email].",".$_POST[bdate].",".$_POST[adress].",".$_POST[phone].";
     $db->exec("INSERT INTO users(username, password_h, name, last_name, sexe, email, birthdate, adress, phone_number) VALUES('".$_POST['user']."','".$_POST['password']."','".$_POST['name']."','".$_POST['last_name']."','".$_POST['sexe']."','".$_POST['email']."','".$_POST['bdate']."','".$_POST['adress']."','".$_POST['phone']."')");
 ?>
