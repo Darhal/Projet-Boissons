@@ -21,19 +21,19 @@
                     <!--img class="booking-img" src="images/form-img.jpg" alt="Booking Image"-->
                 </div>
                 <div class="booking-form">
-                    <form id="booking-form">
+                    <form action="Backend/Signup.php" method="POST" id="booking-form">
                         <h2>Sign up</h2>
                         <div class="form-group form-input">
                             <input type="text" name="user" id="user" value="" required/>
                             <label for="user" class="form-label">Username</label>
                         </div>
                         <div class="form-group form-input">
-                            <input type="text" name="email" id="email" value="" required/>
-                            <label for="email" class="form-label">E-mail</label>
-                        </div>
-                        <div class="form-group form-input">
                             <input type="password" name="password" id="password" value="" required/>
                             <label for="password" class="form-label">Password</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="text" name="email" id="email" value="" required/>
+                            <label for="email" class="form-label">E-mail</label>
                         </div>
                         <div class="form-group form-input">
                             <input type="text" name="name" id="name" value="" required/>
