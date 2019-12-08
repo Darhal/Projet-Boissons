@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
 
+    <link rel="icon" type="image/png" href="../../icons/cocktail2.png"/>
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
@@ -19,14 +20,14 @@
 </head>
 <body>
 
-    <div class="main">
+    <div class="main" style="background-image: url('images/bg1.jpg');">
         <div class="container">
             <div class="booking-content">
                 <div class="booking-image">
                     <img class="booking-img" src="images/background.jpg" alt="Booking Image">
                 </div>
                 <div class="booking-form">
-                    <form action="Backend/Signup.php" method="POST" name="signup-form" id="signup-form">
+                    <form action="backend/signup.php" method="POST" name="signup-form" id="signup-form">
                         <h2>Sign up</h2>
                         <div class="form-group form-input">
                             <input type="text" name="user" id="user" value="" required/>
@@ -89,7 +90,7 @@
 
 
                         <div id="results">
-                            <a href="#" class="vertify-booking">Test</a>
+                            <a href="#" class="vertify-booking"> </a> 
                         </div>
                         <div class="form-submit">
                             <input onclick="SubmitSignupData();" type="button" value="Sign Up" class="submit" id="submit" name="submit" />

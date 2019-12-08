@@ -1,6 +1,6 @@
 <?php
     // Create database if it doesn't exist:
-    $db_path = "users.db";
+    $db_path = "../../../database/users.db";
     $db = new SQLite3($db_path);
     $db->exec("CREATE TABLE IF NOT EXISTS users(
         username VARCHAR(16) PRIMARY KEY, 
