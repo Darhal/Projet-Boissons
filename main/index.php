@@ -90,7 +90,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -113,7 +113,12 @@
                                         <ul class="dropdown">
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="../User/Register/index.html">Sign up</a></li>
-                                            <li><a href="../User/Login/indexhtml
+                                            <li><a href="../User/Login/index.html">Login</a></li>
+                                            <li><a href="receipe-post.html">Receipes</a></li>
+                                            <li><a href="receipe-post.html">My Receipes</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                        </ul>
                                     </li>
                                     <li><a href="../User/Register/index.html">Sign up</a></li>
                                     <li><a href="../User/Login/index.html">Login</a></li>
