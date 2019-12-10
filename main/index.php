@@ -108,10 +108,10 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.php">Home</a></li>
+                                    <li class="active"><a href="index.html">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="index.html">Home</a></li>
                                             <li><a href="../User/Register/index.html">Sign up</a></li>
                                             <li><a href="../User/Login/index.html">Login</a></li>
                                             <li><a href="receipe-post.html">Receipes</a></li>
@@ -214,48 +214,16 @@
                         <img src="img/bg-img/bg3.jpg" alt="">
                         <!-- Content -->
                         <div class="top-cta-content">
-                            <h3>Chinesse Noodles</h3>    <!-- ##### Quote Subscribe Area Start ##### -->
-    <section class="quote-subscribe-adds">
-        <div class="container">
-            <div class="row align-items-end">
-                <!-- Quote -->
-                <div class="col-12 col-lg-4">
-                    <div class="quote-area text-center">
-                        <span>"</span>
-                        <h4>Nothing is better than going home to family and eating good food and relaxing</h4>
-                        <p>John Smith</p>
-                        <div class="date-comments d-flex justify-content-between">
-                            <div class="date">January 04, 2018</div>
-                            <div class="comments">2 Comments</div>
+                            <h3>Chinesse Noodles</h3>
+                            <h6>Simple &amp; Delicios</h6>
+                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Newsletter -->
-                <div class="col-12 col-lg-4">
-                    <div class="newsletter-area">
-                        <h4>Subscribe to our newsletter</h4>
-                        <!-- Form -->
-                        <div class="newsletter-form bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
-                            <form action="#" method="post">
-                                <input type="email" name="email" placeholder="Subscribe to newsletter">
-                                <button type="submit" class="btn delicious-btn w-100">Subscribe</button>
-                            </form>
-                            <p>Fusce nec ante vitae lacus aliquet vulputate. Donec sceleri sque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Adds -->
-                <div class="col-12 col-lg-4">
-                    <div class="delicious-add">
-                        <img src="img/bg-img/add.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### Quote Subscribe Area End ##### -->
+    <!-- ##### Top Catagory Area End ##### -->
 
     <!-- ##### Best Receipe Area Start ##### -->
     <section class="best-receipe-area">
