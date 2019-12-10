@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Delicious | Home</title>
+    <title>Cocktail Lovers | Home</title>
 
     <!-- Favicon -->
     <!--link rel="icon" href="img/core-img/favicon.ico"-->
@@ -56,24 +59,24 @@
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
-                                    <li><a href="#">Hello World!</a></li>
-                                    <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                    <li><a href="#">Hello Delicious!</a></li>
+                                    <li><a href="#">Cocktail</a></li>
+                                    <li><a href="#">Wine.</a></li>
+                                    <li><a href="#">Juice!</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
+                    
                     <!-- Top Social Info -->
-                    <div class="col-12 col-sm-6">
-                        <div class="top-social-info text-right">
-                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
+                    <div class="user-profile"></div>
+                        <?php
+                            if(isset($_SESSION["username"])){
+                                echo "<a>Hello, ".$_SESSION['username']."</a>";
+                            }else{
+                                echo "<a>Welcome to the website</a>";
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -87,7 +90,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -105,77 +108,16 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">Sign up</a></li>
-                                            <li><a href="blog-post.html">Login</a></li>
-                                            <li><a href="receipe-post.html">Receipe Post</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <!--li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About Us</a></li>
-                                                    <li><a href="blog-post.html">Blog Post</a></li>
-                                                    <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
-                                                    <li><a href="elements.html">Elements</a></li>
-                                                    <li><a href="#">Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="index.html">Home</a></li>
-                                                            <li><a href="about.html">About Us</a></li>
-                                                            <li><a href="blog-post.html">Blog Post</a></li>
-                                                            <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
-                                                            <li><a href="elements.html">Elements</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li-->
-                                        </ul>
+                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="../User/Register/index.html">Sign up</a></li>
+                                            <li><a href="../User/Login/indexhtml
                                     </li>
-                                    <!--li><a href="#">Mega Menu</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <div class="single-mega cn-col-4">
-                                                <div class="receipe-slider owl-carousel">
-                                                    <a href="#"><img src="img/bg-img/bg1.jpg" alt=""></a>
-                                                    <a href="#"><img src="img/bg-img/bg6.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li-->
-                                    <li><a href="receipe-post.html">Receipies</a></li>
-                                    <li><a href="../User/Register/Register.html">Sign up</a></li>
+                                    <li><a href="../User/Register/index.html">Sign up</a></li>
                                     <li><a href="../User/Login/index.html">Login</a></li>
+                                    <li><a href="receipe-post.html">Receipies</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
 
@@ -267,16 +209,48 @@
                         <img src="img/bg-img/bg3.jpg" alt="">
                         <!-- Content -->
                         <div class="top-cta-content">
-                            <h3>Chinesse Noodles</h3>
-                            <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
+                            <h3>Chinesse Noodles</h3>    <!-- ##### Quote Subscribe Area Start ##### -->
+    <section class="quote-subscribe-adds">
+        <div class="container">
+            <div class="row align-items-end">
+                <!-- Quote -->
+                <div class="col-12 col-lg-4">
+                    <div class="quote-area text-center">
+                        <span>"</span>
+                        <h4>Nothing is better than going home to family and eating good food and relaxing</h4>
+                        <p>John Smith</p>
+                        <div class="date-comments d-flex justify-content-between">
+                            <div class="date">January 04, 2018</div>
+                            <div class="comments">2 Comments</div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-12 col-lg-4">
+                    <div class="newsletter-area">
+                        <h4>Subscribe to our newsletter</h4>
+                        <!-- Form -->
+                        <div class="newsletter-form bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
+                            <form action="#" method="post">
+                                <input type="email" name="email" placeholder="Subscribe to newsletter">
+                                <button type="submit" class="btn delicious-btn w-100">Subscribe</button>
+                            </form>
+                            <p>Fusce nec ante vitae lacus aliquet vulputate. Donec sceleri sque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adds -->
+                <div class="col-12 col-lg-4">
+                    <div class="delicious-add">
+                        <img src="img/bg-img/add.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### Top Catagory Area End ##### -->
+    <!-- ##### Quote Subscribe Area End ##### -->
 
     <!-- ##### Best Receipe Area Start ##### -->
     <section class="best-receipe-area">
@@ -658,49 +632,6 @@
         </div>
     </section>
     <!-- ##### Small Receipe Area End ##### -->
-
-    <!-- ##### Quote Subscribe Area Start ##### -->
-    <section class="quote-subscribe-adds">
-        <div class="container">
-            <div class="row align-items-end">
-                <!-- Quote -->
-                <div class="col-12 col-lg-4">
-                    <div class="quote-area text-center">
-                        <span>"</span>
-                        <h4>Nothing is better than going home to family and eating good food and relaxing</h4>
-                        <p>John Smith</p>
-                        <div class="date-comments d-flex justify-content-between">
-                            <div class="date">January 04, 2018</div>
-                            <div class="comments">2 Comments</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Newsletter -->
-                <div class="col-12 col-lg-4">
-                    <div class="newsletter-area">
-                        <h4>Subscribe to our newsletter</h4>
-                        <!-- Form -->
-                        <div class="newsletter-form bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
-                            <form action="#" method="post">
-                                <input type="email" name="email" placeholder="Subscribe to newsletter">
-                                <button type="submit" class="btn delicious-btn w-100">Subscribe</button>
-                            </form>
-                            <p>Fusce nec ante vitae lacus aliquet vulputate. Donec sceleri sque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Adds -->
-                <div class="col-12 col-lg-4">
-                    <div class="delicious-add">
-                        <img src="img/bg-img/add.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Quote Subscribe Area End ##### -->
 
     <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
