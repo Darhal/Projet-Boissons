@@ -90,7 +90,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="img/core-img/main-logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -214,8 +214,8 @@
                         <img src="img/bg-img/bg3.jpg" alt="">
                         <!-- Content -->
                         <div class="top-cta-content">
-                            <h3>Chinesse Noodles</h3>
-                            <h6>Simple &amp; Delicios</h6>
+                            <h3>Fruit Juice</h3>
+                            <h6>Simple &amp; Delecious</h6>
                             <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The best Receipies</h3>
+                        <h3>The Best Receipies</h3>
                     </div>
                 </div>
             </div>
@@ -241,9 +241,12 @@
                     include ('../Donnees.inc.php');
                     foreach($Recettes as $rec) {
                         $img_name = str_replace(' ', '_', $rec["titre"]).".jpg";
+                        $img_name = ucfirst(strtolower($img_name));
+                        $img_path = "../Photos/$img_name";
+                        if (file_exists($img_path)){
                         echo "<div class='col-12 col-sm-6 col-lg-4'>".
                         "<div class='single-best-receipe-area mb-30'>".
-                            "<img src='Projet-Boissons/Photos/$img_name' alt=''>".
+                            "<img src='$img_path' alt=''>".
                             "<div class='receipe-content'>".
                                 "<a href='receipe-post.html'>".
                                     "<h5>".$rec['titre']."</h5>".
@@ -258,6 +261,7 @@
                             "</div>".
                         "</div>".
                     "</div>";
+                        }
                     }
                 ?>
             </div>
@@ -266,14 +270,14 @@
     <!-- ##### Best Receipe Area End ##### -->
 
     <!-- ##### CTA Area Start ##### -->
-    <section class="cta-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg4.jpg);">
+    <section class="cta-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg4f.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Cta Content -->
                     <div class="cta-content text-center">
-                        <h2>Gluten Free Receipies</h2>
-                        <p>Fusce nec ante vitae lacus aliquet vulputate. Donec scelerisque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras sed accumsan neque. Ut vulputate, lectus vel aliquam congue, risus leo elementum nibh</p>
+                        <h2>Alcohol Free Drinks</h2>
+                        <p>We also have delecious juice, cocktails and drinks without Alcohol</p>
                         <a href="#" class="btn delicious-btn">Discover all the receipies</a>
                     </div>
                 </div>
@@ -521,7 +525,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h5>Follow Us Instragram</h5>
+                    <h5>The Gallary</h5>
                 </div>
             </div>
         </div>
@@ -609,7 +613,7 @@
                     </div>
                     <!-- Footer Logo -->
                     <div class="footer-logo">
-                        <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html"><img src="img/core-img/main-logo.png" alt=""></a>
                     </div>
                     <!-- Copywrite -->
                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
