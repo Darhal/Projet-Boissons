@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +17,7 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
+    <?php session_start(); ?>
 </head>
 
 <body>
@@ -108,13 +105,13 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="index.php">Home</a></li>
                                             <li><a href="../User/Register/index.html">Sign up</a></li>
                                             <li><a href="../User/Login/index.html">Login</a></li>
-                                            <li><a href="receipe-post.html">Receipes</a></li>
+                                            <li><a href="receipe-post.php">Receipes</a></li>
                                             <li><a href="receipe-post.html">My Receipes</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                             <li><a href="elements.html">Elements</a></li>
@@ -122,7 +119,7 @@
                                     </li>
                                     <li><a href="../User/Register/index.html">Sign up</a></li>
                                     <li><a href="../User/Login/index.html">Login</a></li>
-                                    <li><a href="receipe-post.html">Receipies</a></li>
+                                    <li><a href="receipe-post.php">Receipies</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
 
@@ -238,7 +235,7 @@
             <div class="row">
                 <!-- Single Best Receipe Area -->
                 <?php
-                    include ('../Donnees.inc.php');
+                    include ('Backend/Donnees.inc.php');
                     foreach($Recettes as $rec) {
                         $img_name = str_replace(' ', '_', $rec["titre"]).".jpg";
                         $img_name = ucfirst(strtolower($img_name));

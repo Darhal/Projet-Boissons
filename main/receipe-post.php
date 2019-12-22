@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -9,14 +8,20 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Delicious - Food Blog Template | Receipe Post</title>
+    <title>Cocktail Lovers | Receipes</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <!--link rel="icon" href="img/core-img/favicon.ico"-->
+    <link rel="icon" type="image/png" href="../icons/cocktail2.png"/>
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hierachy.css">
 
+    <?php 
+        session_start();
+        include ("Backend/install.php");
+    ?>
 </head>
 
 <body>
@@ -43,99 +48,99 @@
         </div>
     </div>
 
-        <!-- ##### Header Area Start ##### -->
-        <header class="header-area">
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
 
-            <!-- Top Header Area -->
-            <div class="top-header-area">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center justify-content-between">
-                        <!-- Breaking News -->
-                        <div class="col-12 col-sm-6">
-                            <div class="breaking-news">
-                                <div id="breakingNewsTicker" class="ticker">
-                                    <ul>
-                                        <li><a href="#">Hello World!</a></li>
-                                        <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                        <li><a href="#">Hello Delicious!</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <!-- Top Social Info -->
-                        <div class="col-12 col-sm-6">
-                            <div class="top-social-info text-right">
-                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-between">
+                    <!-- Breaking News -->
+                    <div class="col-12 col-sm-6">
+                        <div class="breaking-news">
+                            <div id="breakingNewsTicker" class="ticker">
+                                <ul>
+                                    <li><a href="#">Cocktail</a></li>
+                                    <li><a href="#">Wine.</a></li>
+                                    <li><a href="#">Juice!</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+
+                    
+                    <!-- Top Social Info -->
+                    <div class="user-profile"></div>
+                        <?php
+                            if(isset($_SESSION["username"])){
+                                echo "<a>Hello, ".$_SESSION['username']."</a>";
+                            }else{
+                                echo "<a>Welcome to the website</a>";
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
-    
-            <!-- Navbar Area -->
-            <div class="delicious-main-menu">
-                <div class="classy-nav-container breakpoint-off">
-                    <div class="container">
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="delicious-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="index.php"><img src="img/core-img/main-logo.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
                         <!-- Menu -->
-                        <nav class="classy-navbar justify-content-between" id="deliciousNav">
-    
-                            <!-- Logo -->
-                            <a class="nav-brand" href="index.html"><img src="img/core-img/main-logo.png" alt=""></a>
-    
-                            <!-- Navbar Toggler -->
-                            <div class="classy-navbar-toggler">
-                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
-    
-                            <!-- Menu -->
-                            <div class="classy-menu">
-    
-                                <!-- close btn -->
-                                <div class="classycloseIcon">
-                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="index.php">Home</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="../User/Register/index.html">Sign up</a></li>
+                                            <li><a href="../User/Login/index.html">Login</a></li>
+                                            <li><a href="receipe-post.php">Receipes</a></li>
+                                            <li><a href="receipe-post.html">My Receipes</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="../User/Register/index.html">Sign up</a></li>
+                                    <li><a href="../User/Login/index.html">Login</a></li>
+                                    <li><a href="receipe-post.php">Receipies</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+
+                                <!-- Newsletter Form -->
+                                <div class="search-btn">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
                                 </div>
-    
-                                <!-- Nav Start -->
-                                <div class="classynav">
-                                    <ul>
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                        <li><a href="#">Pages</a>
-                                            <ul class="dropdown">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="../User/Register/Register.html">Sign up</a></li>
-                                                <li><a href="../User/Login/index.html">Login</a></li>
-                                                <li><a href="receipe-post.html">Receipes</a></li>
-                                                <li><a href="receipe-post.html">My Receipes</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="../User/Register/Register.html">Sign up</a></li>
-                                        <li><a href="../User/Login/index.html">Login</a></li>
-                                        <li><a href="receipe-post.html">Receipies</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-    
-                                    <!-- Newsletter Form -->
-                                    <div class="search-btn">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </div>
-    
-                                </div>
-                                <!-- Nav End -->
+
                             </div>
-                        </nav>
-                    </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
                 </div>
             </div>
-        </header>
-        <!-- ##### Header Area End ##### -->
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
@@ -152,30 +157,40 @@
     <!-- ##### Breadcumb Area End ##### -->
 
     <div class="receipe-post-area section-padding-80">
-
         <!-- Receipe Post Search -->
         <div class="receipe-post-search mb-80">
-            <div class="container">
-                <form action="#" method="post">
+            <div class="container"s>
+                <form id="catselect" action="Backend/Recepies.php">
                     <div class="row">
-                        <div class="col-12 col-lg-3">
-                            <select name="select1" id="select1">
-                                <option value="1">All Receipies Categories</option>
-                                <option value="1">All Receipies Categories 2</option>
-                                <option value="1">All Receipies Categories 3</option>
-                                <option value="1">All Receipies Categories 4</option>
-                                <option value="1">All Receipies Categories 5</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <select name="select1" id="select2">
-                                <option value="1">All Receipies Categories</option>
-                                <option value="1">All Receipies Categories 2</option>
-                                <option value="1">All Receipies Categories 3</option>
-                                <option value="1">All Receipies Categories 4</option>
-                                <option value="1">All Receipies Categories 5</option>
-                            </select>
-                        </div>
+
+                    <div id="hierarchy">
+                        <?php
+                            function PrintCat($cat, $HirTree) {
+                                if (array_key_exists($cat, $HirTree["Category"])){
+                                    
+                                    foreach($HirTree["Category"][$cat] as $e1){
+                                        echo "<div class='foldercontainer'>";
+                                        echo "<span class='folder fa-folder-o' data-isexpanded='true'>$e1</span>";
+                                        
+                                        foreach($HirTree["SousCat"][$e1] as $e3){
+                                            echo "<span class='file fa-file-excel-o'>$e3</span>";
+                                        }
+    
+                                        PrintCat($e1, $HirTree);
+                                        echo "</div>";
+                                    }
+                                }
+                            }
+                            
+                            foreach($HirTree["SuperCat"] as $e){
+                                echo "<div class='foldercontainer'>";
+                                echo "<span class='folder fa-folder-o' data-isexpanded='true'>$e</span>";
+                                PrintCat($e, $HirTree);
+                                echo "</div>";
+                            }
+                        ?>
+                    </div>
+                    </div>
                         <div class="col-12 col-lg-3">
                             <input type="search" name="search" placeholder="Search Receipies">
                         </div>
@@ -186,20 +201,7 @@
                 </form>
             </div>
         </div>
-
-        <!-- Receipe Slider -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="receipe-slider owl-carousel">
-                        <img src="img/bg-img/bg5.jpg" alt="">
-                        <img src="img/bg-img/bg5.jpg" alt="">
-                        <img src="img/bg-img/bg5.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <!-- Receipe Content Area -->
         <div class="receipe-content-area">
             <div class="container">
@@ -464,6 +466,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script src="js/recepies/Recepies.js"></script>
 </body>
 
 </html>
