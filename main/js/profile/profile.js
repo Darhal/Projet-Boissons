@@ -8,12 +8,19 @@ function OnSaveInfo()
     var phone = document.getElementById("phone").value;
     var birthdate = document.getElementById("birthdate").value;
 
-    $.post($("#catselect").attr('action'), {
-        username: username, email: email, name: name, last_name: last_name,
-        adress: adress, phone: phone, birthdate: birthdate
-    }, 
-      function(data){
-            $("#feedback").html(data);
-        }
-    );
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+        $.post($("#catselect").attr('action'), {
+            username: username, email: email, name: name, last_name: last_name,
+            adress: adress, phone: phone, birthdate: birthdate
+        }, 
+          function(data){
+                $("#feedback").html(data);
+                $("#feedback").css('color', 'greregreen');
+            }
+        );
+    }else{
+        $("#feedback").html("E-mail adress is incorrect!");
+        $("#feedback").css('color', 'red');
+    }
+
 }
