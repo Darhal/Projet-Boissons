@@ -13,11 +13,23 @@
 
     <!-- Favicon -->
     <!--link rel="icon" href="img/core-img/favicon.ico"-->
-    <link rel="icon" type="image/png" href="../icons/cocktail2.png"/>
+    <link rel="icon" type="image/png" href="../icons/cocktail2.png" />
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <?php session_start(); ?>
+    <?php 
+        session_start();
+        include("../database/database.php");
+        include('Backend/Donnees.inc.php');
+
+        $unwanted_array = array(
+            'Š' => 'S', 'š' => 's', 'Ž' => 'Z', 'ž' => 'z', 'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A', 'Æ' => 'A', 'Ç' => 'C', 'È' => 'E', 'É' => 'E',
+            'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I', 'Ï' => 'I', 'Ñ' => 'N', 'Ò' => 'O', 'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O', 'Ù' => 'U',
+            'Ú' => 'U', 'Û' => 'U', 'Ü' => 'U', 'Ý' => 'Y', 'Þ' => 'B', 'ß' => 'Ss', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ã' => 'a', 'ä' => 'a', 'å' => 'a', 'æ' => 'a', 'ç' => 'c',
+            'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', 'ì' => 'i', 'í' => 'i', 'î' => 'i', 'ï' => 'i', 'ð' => 'o', 'ñ' => 'n', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'õ' => 'o',
+            'ö' => 'o', 'ø' => 'o', 'ù' => 'u', 'ú' => 'u', 'û' => 'u', 'ý' => 'y', 'þ' => 'b', 'ÿ' => 'y'
+        );
+    ?>
 </head>
 
 <body>
@@ -64,19 +76,23 @@
                         </div>
                     </div>
 
-                    
+
                     <!-- Top Social Info -->
                     <div class="user-profile"></div>
-                        <?php
-                            if(isset($_SESSION["username"])){
-                                echo "<a>Hello, ".$_SESSION['username']."</a>";
-                            }else{
-                                echo "<a>Welcome to the website</a>";
-                            }
-                        ?>
-                    </div>
+                    <?php
+                    if (isset($_SESSION["username"])) {
+                        echo 
+                        "<a href='profile.php'>".
+                            "<img src='img/core-img/user.png' alt='My Profile'>".
+                            "\tHello, " . $_SESSION['username'] . 
+                        "</a>";
+                    } else {
+                        echo "<a>Welcome to the website</a>";
+                    }
+                    ?>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- Navbar Area -->
@@ -112,15 +128,27 @@
                                             <li><a href="../User/Register/index.html">Sign up</a></li>
                                             <li><a href="../User/Login/index.html">Login</a></li>
                                             <li><a href="receipe-post.php">Receipes</a></li>
-                                            <li><a href="receipe-post.html">My Receipes</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
+                                            <li><a href="profile.php">My Profile</a></li>
+                                            <li><a href="logout.php">Log out</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="../User/Register/index.html">Sign up</a></li>
                                     <li><a href="../User/Login/index.html">Login</a></li>
                                     <li><a href="receipe-post.php">Receipies</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="fav-receipes.php">My Favourite Receipes 
+                                        <?php 
+                                            $count = 0;
+                                            if (isset($_SESSION["username"])) {
+                                                $res = $db->query("SELECT COUNT(recette_id) as count FROM FavouriteRecipes WHERE username = '".$_SESSION["username"]."';");
+                                                $row = $res->fetchArray();
+                                                $count = $row['count'];
+                                            }else if (isset($_COOKIE['fav_recp_len'])){
+                                                $count = $_COOKIE['fav_recp_len'];
+                                            }
+
+                                            echo "(".$count.")";
+                                        ?>
+                                    </a></li>
                                 </ul>
 
                                 <!-- Newsletter Form -->
@@ -235,31 +263,32 @@
             <div class="row">
                 <!-- Single Best Receipe Area -->
                 <?php
-                    include ('Backend/Donnees.inc.php');
-                    foreach($Recettes as $rec) {
-                        $img_name = str_replace(' ', '_', $rec["titre"]).".jpg";
-                        $img_name = ucfirst(strtolower($img_name));
-                        $img_path = "../Photos/$img_name";
-                        if (file_exists($img_path)){
-                        echo "<div class='col-12 col-sm-6 col-lg-4'>".
-                        "<div class='single-best-receipe-area mb-30'>".
-                            "<img src='$img_path' alt=''>".
-                            "<div class='receipe-content'>".
-                                "<a href='receipe-post.html'>".
-                                    "<h5>".$rec['titre']."</h5>".
-                                "</a>".
-                                "<div class='ratings'>".
-                                    "<i class='fa fa-star' aria-hidden='true'></i>".
-                                    "<i class='fa fa-star' aria-hidden='true'></i>".
-                                    "<i class='fa fa-star' aria-hidden='true'></i>".
-                                    "<i class='fa fa-star' aria-hidden='true'></i>".
-                                    "<i class='fa fa-star-o' aria-hidden='true'></i>".
-                                "</div>".
-                            "</div>".
-                        "</div>".
-                    "</div>";
-                        }
+                foreach ($Recettes as $i => $rec) {
+                    $img_name = str_replace(' ', '_', $rec["titre"]) . ".jpg";
+                    $img_name = strtr($img_name, $unwanted_array);
+                    $img_name = ucfirst(strtolower($img_name));
+                    $img_path = "../Photos/$img_name";
+                    if (file_exists($img_path)) {
+                        echo
+                            "<div class='col-12 col-sm-6 col-lg-4'>" .
+                                "<div class='single-best-receipe-area mb-30'>" .
+                                "<img src='$img_path' alt=''>" .
+                                "<div class='receipe-content'>" .
+                                "<a href='receipie.php?receipie=$i'>" .
+                                "<h5>" . $rec['titre'] . "</h5>" .
+                                "</a>" .
+                                "<div class='ratings'>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star-o' aria-hidden='true'></i>" .
+                                "</div>" .
+                                "</div>" .
+                                "</div>" .
+                                "</div>";
                     }
+                }
                 ?>
             </div>
         </div>
@@ -613,9 +642,11 @@
                         <a href="index.html"><img src="img/core-img/main-logo.png" alt=""></a>
                     </div>
                     <!-- Copywrite -->
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    <p>
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved </a>
+                    </p>
                 </div>
             </div>
         </div>

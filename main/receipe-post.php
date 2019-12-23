@@ -12,16 +12,22 @@
 
     <!-- Favicon -->
     <!--link rel="icon" href="img/core-img/favicon.ico"-->
-    <link rel="icon" type="image/png" href="../icons/cocktail2.png"/>
+    <link rel="icon" type="image/png" href="../icons/cocktail2.png" />
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="hierachy.css">
 
-    <?php 
-        session_start();
-        include ("Backend/install.php");
+    <?php
+    session_start();
+    include("Backend/install.php");
+    include("../database/database.php");
     ?>
+    <script>
+        Recettes = <?php echo json_encode($Recettes); ?>;
+        AlimentToRecette = <?php echo json_encode($AlimentToRecette); ?>;
+        HirTree = <?php echo json_encode($HirTree); ?>;
+    </script>
 </head>
 
 <body>
@@ -68,20 +74,25 @@
                         </div>
                     </div>
 
-                    
+
                     <!-- Top Social Info -->
                     <div class="user-profile"></div>
-                        <?php
-                            if(isset($_SESSION["username"])){
-                                echo "<a>Hello, ".$_SESSION['username']."</a>";
-                            }else{
-                                echo "<a>Welcome to the website</a>";
-                            }
-                        ?>
-                    </div>
+                    <?php
+                    if (isset($_SESSION["username"])) {
+                        echo 
+                        "<a href='profile.php'>".
+                            "<img src='img/core-img/user.png' alt='My Profile'>".
+                            "\tHello, " . $_SESSION['username'] . 
+                        "</a>";
+                    } else {
+                        echo "<a>Welcome to the website</a>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
+        </div>
+
 
         <!-- Navbar Area -->
         <div class="delicious-main-menu">
@@ -116,15 +127,27 @@
                                             <li><a href="../User/Register/index.html">Sign up</a></li>
                                             <li><a href="../User/Login/index.html">Login</a></li>
                                             <li><a href="receipe-post.php">Receipes</a></li>
-                                            <li><a href="receipe-post.html">My Receipes</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
+                                            <li><a href="profile.php">My Profile</a></li>
+                                            <li><a href="logout.php">Log out</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="../User/Register/index.html">Sign up</a></li>
                                     <li><a href="../User/Login/index.html">Login</a></li>
                                     <li><a href="receipe-post.php">Receipies</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="fav-receipes.php">My Favourite Receipes 
+                                        <?php 
+                                            $count = 0;
+                                            if (isset($_SESSION["username"])) {
+                                                $res = $db->query("SELECT COUNT(recette_id) as count FROM FavouriteRecipes WHERE username = '".$_SESSION["username"]."';");
+                                                $row = $res->fetchArray();
+                                                $count = $row['count'];
+                                            }else if (isset($_COOKIE['fav_recp_len'])){
+                                                $count = $_COOKIE['fav_recp_len'];
+                                            }
+
+                                            echo "(".$count.")";
+                                        ?>
+                                    </a></li>
                                 </ul>
 
                                 <!-- Newsletter Form -->
@@ -155,42 +178,12 @@
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
-
     <div class="receipe-post-area section-padding-80">
         <!-- Receipe Post Search -->
         <div class="receipe-post-search mb-80">
-            <div class="container"s>
+            <div class="container" s>
                 <form id="catselect" action="Backend/Recepies.php">
                     <div class="row">
-
-                    <div id="hierarchy">
-                        <?php
-                            function PrintCat($cat, $HirTree) {
-                                if (array_key_exists($cat, $HirTree["Category"])){
-                                    
-                                    foreach($HirTree["Category"][$cat] as $e1){
-                                        echo "<div class='foldercontainer'>";
-                                        echo "<span class='folder fa-folder-o' data-isexpanded='true'>$e1</span>";
-                                        
-                                        foreach($HirTree["SousCat"][$e1] as $e3){
-                                            echo "<span class='file fa-file-excel-o'>$e3</span>";
-                                        }
-    
-                                        PrintCat($e1, $HirTree);
-                                        echo "</div>";
-                                    }
-                                }
-                            }
-                            
-                            foreach($HirTree["SuperCat"] as $e){
-                                echo "<div class='foldercontainer'>";
-                                echo "<span class='folder fa-folder-o' data-isexpanded='true'>$e</span>";
-                                PrintCat($e, $HirTree);
-                                echo "</div>";
-                            }
-                        ?>
-                    </div>
-                    </div>
                         <div class="col-12 col-lg-3">
                             <input type="search" name="search" placeholder="Search Receipies">
                         </div>
@@ -198,157 +191,58 @@
                             <button type="submit" class="btn delicious-btn">Search</button>
                         </div>
                     </div>
-                </form>
             </div>
-        </div>
-        
-        <!-- Receipe Content Area -->
-        <div class="receipe-content-area">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <div class="receipe-headline my-5">
-                            <span>April 05, 2018</span>
-                            <h2>Vegetarian cheese salad</h2>
-                            <div class="receipe-duration">
-                                <h6>Prep: 15 mins</h6>
-                                <h6>Cook: 30 mins</h6>
-                                <h6>Yields: 8 Servings</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <div class="receipe-ratings text-right my-5">
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <a href="#" class="btn delicious-btn">For Begginers</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>01.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>02.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>03.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>04.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                    </div>
-
-                    <!-- Ingredients -->
-                    <div class="col-12 col-lg-4">
-                        <div class="ingredients">
-                            <h4>Ingredients</h4>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">4 Tbsp (57 gr) butter</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                <label class="custom-control-label" for="customCheck2">2 large eggs</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                <label class="custom-control-label" for="customCheck3">2 yogurt containers granulated sugar</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                <label class="custom-control-label" for="customCheck4">1 vanilla or plain yogurt, 170g container</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                <label class="custom-control-label" for="customCheck5">2 yogurt containers unbleached white flour</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                <label class="custom-control-label" for="customCheck6">1.5 yogurt containers milk</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                <label class="custom-control-label" for="customCheck7">1/4 tsp cinnamon</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                <label class="custom-control-label" for="customCheck8">1 cup fresh blueberries </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-heading text-left">
-                            <h3>Leave a comment</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="contact-form-area">
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" id="name" placeholder="Name">
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="email" class="form-control" id="email" placeholder="E-mail">
-                                    </div>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn delicious-btn mt-30" type="submit">Post Comments</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
+
+    <div id="hierarchy">
+        <?php
+        function PrintCat($cat, $HirTree)
+        {
+            if (array_key_exists($cat, $HirTree["Category"])) {
+
+                foreach ($HirTree["Category"][$cat] as $e1) {
+                    echo "<div class='foldercontainer'>";
+                    echo "<span class='folder fa-folder-o' data-data='$e1' data-isexpanded='true'>$e1</span>";
+
+                    if (array_key_exists($e1, $HirTree["SousCat"])) {
+                        foreach ($HirTree["SousCat"][$e1] as $e3) {
+                            echo "<span class='file fa-file-excel-o' data-data='$e3'>$e3</span>";
+                        }
+                    }
+
+                    PrintCat($e1, $HirTree);
+                    echo "</div>";
+                }
+            }
+        }
+
+        foreach ($HirTree["SuperCat"] as $e) {
+            echo "<div class='foldercontainer'>";
+            echo "<span class='folder fa-folder-o' data-isexpanded='true' data-data='$e'>$e</span>";
+            PrintCat($e, $HirTree);
+            echo "</div>";
+        }
+        ?>
+    </div>
+
+    <!-- ##### Best Receipe Area Start ##### -->
+    <section class="best-receipe-area" id="best-receipe-area" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>The Selected Recepies :</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="recepies-post">
+            </div>
+        </div>
+    </section>
+    <!-- ##### Best Receipe Area End ##### -->
+
 
     <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
@@ -446,9 +340,11 @@
                         <a href="index.html"><img src="img/core-img/main-logo.png" alt=""></a>
                     </div>
                     <!-- Copywrite -->
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    <p>
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved </a>
+                    </p>
                 </div>
             </div>
         </div>
