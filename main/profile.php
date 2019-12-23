@@ -205,10 +205,10 @@
                             <a>Adress: </a><input type="input" id="adress" value=<?php echo $row["adress"]; ?>>
                         </div>
                         <div class="col-12 col-lg-3">
-                            <a>Phone: </a><input type="input" id="phone" value=<?php echo $row["phone_number"]; ?>>
+                            <a>Phone: </a><input class="form-control" type="text" pattern="[0-9]{2}[0-9]{8}" id="phone" value=<?php echo $row["phone_number"]; ?>>
                         </div>
                         <div class="col-12 col-lg-3">
-                            <a>Birthdate: </a><input type="input" id="birthdate" value=<?php echo $row["birthdate"]; ?>>
+                            <a>Birthdate: </a><input type="date" id="birthdate" value=<?php echo $row["birthdate"]; ?>>
                         </div>
                         <div class="col-12 col-lg-3 text-right" style="transform: translate(0%, 30%);">
                             <a id="feedback" style="color: green;"></a>
@@ -254,7 +254,7 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Popper js -->
     <script src="js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
@@ -264,6 +264,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     <script src="js/profile/profile.js"></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js'></script>
 </body>
 
 </html>
