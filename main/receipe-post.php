@@ -16,6 +16,7 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search.css">
     <link rel="stylesheet" href="hierachy.css">
 
     <?php
@@ -27,6 +28,11 @@
         Recettes = <?php echo json_encode($Recettes); ?>;
         AlimentToRecette = <?php echo json_encode($AlimentToRecette); ?>;
         HirTree = <?php echo json_encode($HirTree); ?>;
+
+        NomRecettes = [];
+        Recettes.forEach(function(element){
+            NomRecettes.push(element["titre"]);
+        });
     </script>
 </head>
 
@@ -185,7 +191,13 @@
                 <form id="catselect" action="Backend/Recepies.php">
                     <div class="row">
                         <div class="col-12 col-lg-3">
-                            <input type="search" name="search" placeholder="Search Receipies">
+                            <div class = "autocomplete">
+                                <input type="search" id="search" placeholder="Search Receipies"  />
+                            </div>
+                            <!--
+                            onchange="SearchRecepie(this.value);"
+                                onkeyup="this.onchange(this.value);" onpaste="this.onchange(this.value);" oninput="this.onchange(this.value);"
+                            -->
                         </div>
                         <div class="col-12 col-lg-3 text-right">
                             <button type="submit" class="btn delicious-btn">Search</button>
@@ -363,6 +375,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     <script src="js/recepies/Recepies.js"></script>
+    <script src="js/search/search.js"></script>
 </body>
 
 </html>
