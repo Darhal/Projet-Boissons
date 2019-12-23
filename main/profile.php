@@ -173,18 +173,56 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>TEST</h3>
+                        <h3>My Profile Settings</h3>
                     </div>
                 </div>
             </div>
-            <div class="row">
-
+            <div class="receipe-post-area section-padding-80">
+            <!-- Receipe Post Search -->
+            <div class="receipe-post-search mb-80">
+                <div class="container" s>
+                    <form id="catselect" action="" style="transform: translate(40%, -20%);">
+                        <?php
+                            $res = $db->query("SELECT * FROM users WHERE username = '".$_SESSION['username']."';");
+                            $row = $res->fetchArray();
+                        ?>
+                        <div class="col-12 col-lg-3">
+                            <a> Username: (Cannot be changed) </a><input type="input" id="username" value=<?php echo $row["username"]; ?> readonly>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a>Password: </a><input type="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a> E-Mail: </a><input type="input" id="email" value=<?php echo $row["email"]; ?>>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a>Name: </a><input type="input" id="name" value=<?php echo $row["name"]; ?>>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a>Last Name: </a><input type="input" id="last_name" value=<?php echo $row["last_name"]; ?>>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a>Adress: </a><input type="input" id="adress" value=<?php echo $row["adress"]; ?>>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a>Phone: </a><input type="input" id="phone" value=<?php echo $row["phone_number"]; ?>>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <a>Birthdate: </a><input type="input" id="birthdate" value=<?php echo $row["birthdate"]; ?>>
+                        </div>
+                        <div class="col-12 col-lg-3 text-right"></div>
+                        <div class="col-12 col-lg-3 text-right" style="transform: translate(0%, 30%);">
+                            <button onclick="" type="submit" class="btn delicious-btn">Save</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
+
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
+    <footer class="footer-area" style="transform: translate(0%, -200%);">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
@@ -223,6 +261,7 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script src="js/profile/profile.js"></script>
 </body>
 
 </html>
