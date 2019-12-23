@@ -15,7 +15,7 @@ function OnSaveInfo()
         }, 
           function(data){
                 $("#feedback").html(data);
-                $("#feedback").css('color', 'greregreen');
+                $("#feedback").css('color', 'green');
             }
         );
     }else{
