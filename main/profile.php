@@ -180,8 +180,8 @@
             <div class="receipe-post-area section-padding-80">
             <!-- Receipe Post Search -->
             <div class="receipe-post-search mb-80">
-                <div class="container" s>
-                    <form id="catselect" action="" style="transform: translate(40%, -20%);">
+                <div class="container" >
+                    <form action="Backend/InfoChange.php" id="catselect" name="catselect" method="POST" style="transform: translate(40%, -20%);">
                         <?php
                             $res = $db->query("SELECT * FROM users WHERE username = '".$_SESSION['username']."';");
                             $row = $res->fetchArray();
@@ -210,9 +210,11 @@
                         <div class="col-12 col-lg-3">
                             <a>Birthdate: </a><input type="input" id="birthdate" value=<?php echo $row["birthdate"]; ?>>
                         </div>
-                        <div class="col-12 col-lg-3 text-right"></div>
                         <div class="col-12 col-lg-3 text-right" style="transform: translate(0%, 30%);">
-                            <button onclick="" type="submit" class="btn delicious-btn">Save</button>
+                            <a id="feedback" style="color: green;"></a>
+                        </div>
+                        <div class="col-12 col-lg-3 text-right" style="transform: translate(0%, 30%);">
+                            <button onclick="OnSaveInfo();" type="button" class="btn delicious-btn">Save</button>
                         </div>
                     </form>
                 </div>
