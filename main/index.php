@@ -175,9 +175,9 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Bloody Mary</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">A Bloody Mary is a cocktail containing vodka, tomato juice, and other spices and flavorings including Worcestershire sauce, hot sauces, garlic, herbs, horseradish, celery, olives, salt, black pepper, lemon juice, lime juice and/or celery salt. In the United States, it is usually consumed in the morning or early afternoon, and is popular as a hangover cure.</p>
+                                <a href="receipe-post.php" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
                             </div>
                         </div>
                     </div>
@@ -190,9 +190,9 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">A Tasty Caipirinha</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">Caipirinha is Brazil's national cocktail, made with cachaça, sugar, and lime. Cachaça, also known as caninha, or any of a multitude of traditional names, is Brazil's most common distilled alcoholic beverage.</p>
+                                <a href="receipe-post.php" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
                             </div>
                         </div>
                     </div>
@@ -205,9 +205,9 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Tequila Sunrise From USA</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">The Tequila Sunrise is a cocktail made of tequila, orange juice, and grenadine syrup, and served unmixed in a tall glass. The modern drink originates from Sausalito, California in the early 1970s after an earlier one created in the 1930s in Phoenix, Arizona.</p>
+                                <a href="receipe-post.php" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
                             </div>
                         </div>
                     </div>
@@ -227,9 +227,9 @@
                         <img src="img/bg-img/bg2.jpg" alt="">
                         <!-- Content -->
                         <div class="top-cta-content">
-                            <h3>Strawberry Cake</h3>
+                            <h3>Coconut Kiss Mocktail</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="receipie.php?receipie=73" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
                 </div>
@@ -303,248 +303,14 @@
                     <!-- Cta Content -->
                     <div class="cta-content text-center">
                         <h2>Alcohol Free Drinks</h2>
-                        <p>We also have delecious juice, cocktails and drinks without Alcohol</p>
-                        <a href="#" class="btn delicious-btn">Discover all the receipies</a>
+                        <p>We also have delecious juice, cocktails and drinks without Alcohol. Using healthy and frehs fruits and vegtables to make the best drinks</p>
+                        <a href="receipe-post.php" class="btn delicious-btn">Discover all the receipies</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ##### CTA Area End ##### -->
-
-    <!-- ##### Small Receipe Area Start ##### -->
-    <section class="small-receipe-area section-padding-80-0">
-        <div class="container">
-            <div class="row">
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr1.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Homemade italian pasta</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr2.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Baked Bread</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr3.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Scalops on salt</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr4.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Fruits on plate</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr5.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Macaroons</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr6.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Chocolate tart</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr7.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Berry Desert</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr8.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Zucchini Grilled on peper</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-small-receipe-area d-flex">
-                        <!-- Receipe Thumb -->
-                        <div class="receipe-thumb">
-                            <img src="img/bg-img/sr9.jpg" alt="">
-                        </div>
-                        <!-- Receipe Content -->
-                        <div class="receipe-content">
-                            <span>January 04, 2018</span>
-                            <a href="receipe-post.html">
-                                <h5>Chicken Salad</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>2 Comments</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Small Receipe Area End ##### -->
 
     <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
