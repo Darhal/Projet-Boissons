@@ -1,16 +1,24 @@
 <?php
-    if (isset($_SESSION["username"])) {
-        session_unset();
-        session_destroy();
-        $past = 1;
-        
-        foreach ( $_COOKIE["fav_recp"] as $key => $value )
-        {
-            setcookie("fav_recp[$key]", null, $past, '/' );
-        }
+    // restaurt session
+    session_start();
+    //clean array de session 
+    $_SESSION = array();
+    // destroy session
+    session_destroy();
+    // destroy array session
+    unset($_SESSION);
 
-        setcookie("fav_recp_len", 0, $past, '/' );
+    // Delete cookies
+    if (isset($_SERVER['HTTP_COOKIE'])) {
+        $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+        foreach($cookies as $cookie) {
+            $parts = explode('=', $cookie);
+            $name = trim($parts[0]);
+            setcookie($name, '', 1);
+            setcookie($name, '', 1, '/');
+        }
     }
 
+    //When user log out , back to index.php where he can either log in or sign up
     header("Location: index.php");
 ?>

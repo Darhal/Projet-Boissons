@@ -21,7 +21,7 @@
         session_start();
         include("../database/database.php");
         include('Backend/Donnees.inc.php');
-
+	//Caractére special
         $unwanted_array = array(
             'Š' => 'S', 'š' => 's', 'Ž' => 'Z', 'ž' => 'z', 'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A', 'Æ' => 'A', 'Ç' => 'C', 'È' => 'E', 'É' => 'E',
             'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I', 'Ï' => 'I', 'Ñ' => 'N', 'Ò' => 'O', 'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O', 'Ù' => 'U',
@@ -33,37 +33,16 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <i class="circle-preloader"></i>
-        <img src="img/core-img/salad.png" alt="">
-    </div>
 
-    <!-- Search Wrapper -->
-    <div class="search-wrapper">
-        <!-- Close Btn -->
-        <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="#" method="post">
-                        <input type="search" name="search" placeholder="Type any keywords...">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ##### Header Area Start ##### -->
+       <!-- ##### Header Area Start ##### -->
     <header class="header-area">
 
         <!-- Top Header Area -->
         <div class="top-header-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
-                    <!-- Breaking News -->
+                    <!-- Most searched drinks -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
@@ -75,7 +54,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Top Social Info -->
                     <div class="user-profile"></div>
@@ -118,24 +96,30 @@
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <!-- Nav Start -->
+                            <!-- Barre de lien  -->
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="index.php">Home</a></li>
-                                            <li><a href="../User/Register/index.html">Sign up</a></li>
-                                            <li><a href="../User/Login/index.html">Login</a></li>
-                                            <li><a href="receipe-post.php">Receipes</a></li>
-                                            <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="logout.php">Log out</a></li>
+                                            <li><a href="receipe-post.php">Recipes</a></li>
+                                            <?php 
+                                                if(isset($_SESSION["username"])){
+                                                    echo " <li><a href='profile.php'>My Profile</a></li>";
+                                                }
+                                                if(!isset($_SESSION["username"])) 
+                                                    echo "<li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+                                                else
+                                                    echo "<li><a href=\"logout.php\">Log Out</a></li>"; 
+                                            ?>
                                         </ul>
                                     </li>
-                                    <li><a href="../User/Register/index.html">Sign up</a></li>
-                                    <li><a href="../User/Login/index.html">Login</a></li>
-                                    <li><a href="receipe-post.php">Receipies</a></li>
-                                    <li><a href="fav-receipes.php">My Favourite Receipes 
+                                   <?php if(!isset($_SESSION["username"])) echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+else
+ echo "<li><a href=\"logout.php\">Log out</a></li>"; ?>
+                                    <li><a href="receipe-post.php">Recipes</a></li>
+                                    <li><a href="fav-receipes.php">My Favourite Recipes 
                                         <?php 
                                             $count = 0;
                                             if (isset($_SESSION["username"])) {
@@ -151,11 +135,7 @@
                                     </a></li>
                                 </ul>
 
-                                <!-- Newsletter Form -->
-                                <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
+                            
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -166,10 +146,10 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <!-- ##### Hero Area Start ##### -->
+    <!-- ##### Cocktail Area Start ##### -->
     <section class="hero-area">
         <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slide -->
+            <!-- Blood mary Slide -->
             <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg1.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
@@ -177,14 +157,14 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Bloody Mary</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms">A Bloody Mary is a cocktail containing vodka, tomato juice, and other spices and flavorings including Worcestershire sauce, hot sauces, garlic, herbs, horseradish, celery, olives, salt, black pepper, lemon juice, lime juice and/or celery salt. In the United States, it is usually consumed in the morning or early afternoon, and is popular as a hangover cure.</p>
-                                <a href="receipe-post.php" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <a href="receipe-post.php" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Recipe</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Single Hero Slide -->
+            <!-- Caipirinha coktail Slide -->
             <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg6.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
@@ -199,7 +179,7 @@
                 </div>
             </div>
 
-            <!-- Single Hero Slide -->
+            <!-- Tequila sunrise coktail  Slide -->
             <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg7.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
@@ -215,9 +195,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### Hero Area End ##### -->
+    <!-- ##### Cocktail Area End ##### -->
 
-    <!-- ##### Top Catagory Area Start ##### -->
+    <!-- ##### Some cocktail Area Start ##### -->
     <section class="top-catagory-area section-padding-80-0">
         <div class="container">
             <div class="row">
@@ -229,11 +209,11 @@
                         <div class="top-cta-content">
                             <h3>Coconut Kiss Mocktail</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="receipie.php?receipie=73" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="receipie.php?receipie=73" class="btn delicious-btn">See Full Recipe</a>
                         </div>
                     </div>
                 </div>
-                <!-- Top Catagory Area -->
+                <!-- Juice Catagory Area -->
                 <div class="col-12 col-lg-6">
                     <div class="single-top-catagory">
                         <img src="img/bg-img/bg3.jpg" alt="">
@@ -241,33 +221,33 @@
                         <div class="top-cta-content">
                             <h3>Fruit Juice</h3>
                             <h6>Simple &amp; Delecious</h6>
-                            <a href="receipe-post.php" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="receipe-post.php" class="btn delicious-btn">Search recipe</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### Top Catagory Area End ##### -->
+    <!-- ##### Juice Catagory Area End ##### -->
 
-    <!-- ##### Best Receipe Area Start ##### -->
+    <!-- ##### Cocktail Recipe Area Start ##### -->
     <section class="best-receipe-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The Best Receipies</h3>
+                        <h3>The Best Recipes</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <!-- Single Best Receipe Area -->
+                <!-- Cocktail Best Recipe Area -->
                 <?php
                 foreach ($Recettes as $i => $rec) {
                     $img_name = str_replace(' ', '_', $rec["titre"]) . ".jpg";
                     $img_name = strtr($img_name, $unwanted_array);
                     $img_name = ucfirst(strtolower($img_name));
-                    $img_path = "../Photos/$img_name";
+                    $img_path = "../Photos/alcool/$img_name";
                     if (file_exists($img_path)) {
                         echo
                             "<div class='col-12 col-sm-6 col-lg-4'>" .
@@ -293,9 +273,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### Best Receipe Area End ##### -->
+    <!-- ##### Cocktail Recipe Area End ##### -->
 
-    <!-- ##### CTA Area Start ##### -->
+    <!-- ##### non alcohol Area Start ##### -->
     <section class="cta-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg4f.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -304,13 +284,66 @@
                     <div class="cta-content text-center">
                         <h2>Alcohol Free Drinks</h2>
                         <p>We also have delecious juice, cocktails and drinks without Alcohol. Using healthy and frehs fruits and vegtables to make the best drinks</p>
-                        <a href="receipe-post.php" class="btn delicious-btn">Discover all the receipies</a>
+                        <a href="receipe-post.php" class="btn delicious-btn">Discover all the recipes</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### CTA Area End ##### -->
+    <!-- ##### none alcohol Area End ##### -->
+<!-- ##### Juice Recipe Area Start ##### -->
+    <section class="small-receipe-area section-padding-80-0">
+        <div class="container">
+            <div class="row">
+
+                   </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Cocktails recipes Area -->
+                <?php
+                foreach ($Recettes as $i => $rec) {  
+//Nom de cocktaill  	
+$img_name2= str_replace(' (','(', $rec["titre"]);	
+$img_name2= str_replace('(', '_', $img_name2);
+$img_name2= str_replace(' ', '_', $img_name2);
+$img_name2= str_replace('-','_',  $img_name2);	
+$img_name2= str_replace(')', '', $img_name2).".jpg";
+		$img_name2 = strtr($img_name2, $unwanted_array);
+                   $img_name2 = ucfirst(strtolower($img_name2));
+		 $img_path2 = "../Photos/sansalcool/$img_name2";
+		  if(file_exists($img_path2)) {
+				        echo
+                            "<div class='col-12 col-sm-6 col-lg-4'>" .
+                                "<div class='single-best-receipe-area mb-30'>" .
+                                "<img src='$img_path2' alt=''>" .
+                                "<div class='receipe-content'>" .
+                                "<a href='receipie.php?receipie=$i'>" .
+                                "<h5>" . $rec['titre'] . "</h5>" .
+                                "</a>" .
+                                "<div class='ratings'>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star-o' aria-hidden='true'></i>" .
+                                "</div>" .
+                                "</div>" .
+                                "</div>" .
+                                "</div>";
+                }
+
+
+
+
+}
+
+                ?>
+            </div>
+        </div>
+    </section>
+    <!--Coktails recepis area end  -->
+
 
     <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
@@ -325,7 +358,7 @@
         <div class="insta-feeds d-flex flex-wrap">
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta1.jpg" alt="">
+                <img src="img/bg-img/bg2.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -334,7 +367,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta2.jpg" alt="">
+                <img src="../Photos/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -343,7 +376,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta3.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -352,7 +385,25 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta4.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="../Photos/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="img/bg-img/bg7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -362,24 +413,6 @@
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
                 <img src="img/bg-img/insta5.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta6.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>

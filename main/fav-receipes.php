@@ -65,7 +65,7 @@
         <div class="top-header-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
-                    <!-- Breaking News -->
+                    <!-- Most searched drink -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
@@ -127,15 +127,24 @@
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="index.php">Home</a></li>
-                                            <li><a href="../User/Register/index.html">Sign up</a></li>
-                                            <li><a href="../User/Login/index.html">Login</a></li>
+                                             <?php if(!isset($_SESSION["username"])) echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+else
+ echo "<li><a href=\"logout.php\">Log out</a></li>"; ?>
+                                        
+                                      
                                             <li><a href="receipe-post.php">Receipes</a></li>
-                                            <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="logout.php">Log out</a></li>
+                                            <?php 
+                                                if(isset($_SESSION["username"])){
+                                                    echo " <li><a href='profile.php'>My Profile</a></li>";
+                                                    echo "<li><a href='logout.php'>Log out</a></li>";
+                                                }
+                                            ?>
                                         </ul>
                                     </li>
-                                    <li><a href="../User/Register/index.html">Sign up</a></li>
-                                    <li><a href="../User/Login/index.html">Login</a></li>
+                                 
+                                   <?php if(!isset($_SESSION["username"])) echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+else
+ echo "<li><a href=\"logout.php\">Log out</a></li>"; ?>
                                     <li><a href="receipe-post.php">Receipies</a></li>
                                     <li><a href="fav-receipes.php">My Favourite Receipes 
                                         <?php 
@@ -153,10 +162,7 @@
                                     </a></li>
                                 </ul>
 
-                                <!-- Newsletter Form -->
-                                <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
+                               
 
                             </div>
                             <!-- Nav End -->
@@ -169,7 +175,7 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb2.jpg);">
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg8.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -227,13 +233,13 @@
                         "</div>".
                     "</div>";
                 }
-
                 foreach ($rec_ids as $id) {
+                    // Alcohol drinks
                     $rec = $Recettes[$id];
                     $img_name = str_replace(' ', '_', $rec["titre"]) . ".jpg";
                     $img_name = strtr($img_name, $unwanted_array);
                     $img_name = ucfirst(strtolower($img_name));
-                    $img_path = "../Photos/$img_name";
+                    $img_path = "../Photos/alcool/$img_name";
                     if (file_exists($img_path)) {
                         echo
                             "<div class='col-12 col-sm-6 col-lg-4'>" .
@@ -254,6 +260,37 @@
                                 "</div>" .
                                 "</div>";
                     }
+                
+                    //None alcohol drinks
+                    $rec2 = $Recettes[$id];
+                    $img_name2= str_replace(' (','(', $rec2["titre"]);	
+                    $img_name2= str_replace('(', '_', $img_name2);
+                    $img_name2= str_replace(' ', '_', $img_name2);
+                    $img_name2= str_replace('-','_',  $img_name2);	
+                    $img_name2= str_replace(')', '', $img_name2).".jpg";
+		            $img_name2 = strtr($img_name2, $unwanted_array);
+                    $img_name2 = ucfirst(strtolower($img_name2));
+		            $img_path2 = "../Photos/sansalcool/$img_name2";
+		            if(file_exists($img_path2)) {       
+                        echo
+                            "<div class='col-12 col-sm-6 col-lg-4'>" .
+                                "<div class='single-best-receipe-area mb-30'>" .
+                                "<img src='$img_path2' onerror='javascript:this.src='../Photos/default.png''>" .
+                                "<div class='receipe-content'>" .
+                                "<a href='receipie.php?receipie=$id'>" .
+                                "<h5>" . $rec2['titre'] . "</h5>" .
+                                "</a>" .
+                                "<div class='ratings'>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "<i class='fa fa-star' aria-hidden='true'></i>" .
+                                "</div>" .
+                                "</div>" .
+                                "</div>" .
+                                "</div>";
+                    }
                 }
                 ?>
             </div>
@@ -261,8 +298,7 @@
     </section>
     <!-- ##### Best Receipe Area End ##### -->
 
-
-    <!-- ##### Follow Us Instagram Area Start ##### -->
+     <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
         <div class="container">
             <div class="row">
@@ -275,7 +311,7 @@
         <div class="insta-feeds d-flex flex-wrap">
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta1.jpg" alt="">
+                <img src="img/bg-img/bg2.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -284,7 +320,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta2.jpg" alt="">
+                <img src="../Photos/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -293,7 +329,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta3.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -302,7 +338,25 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta4.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="../Photos/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="img/bg-img/bg7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -317,27 +371,10 @@
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta6.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta7.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
         </div>
     </div>
     <!-- ##### Follow Us Instagram Area End ##### -->
+
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">

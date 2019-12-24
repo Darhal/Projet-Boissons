@@ -19,20 +19,21 @@
             $count += 1;
         }
     }else{
+        $index = 0;
         if (!isset($_COOKIE['fav_recp_len'])){
-            setcookie('fav_recp_len', 1, 0, '/');
+            setcookie('fav_recp_len', $count, 0, '/');
+        }else{
+            $index = $_COOKIE['fav_recp_len'];
         }
 
-        $index = $_COOKIE['fav_recp_len'];
-        if (!isset($_COOKIE['fav_recp']) || !in_array($id, $_COOKIE['fav_recp'])){
+        if (!isset($_COOKIE['fav_recp']) || !in_array($id, $_COOKIE['fav_recp'])){ 
             
             $cookie_name = 'fav_recp['.$index.']';
             setcookie($cookie_name, $id, 0, '/');
             $index += 1;
             setcookie('fav_recp_len', $index, 0, '/');
+            $count = $index;
         }
-
-        $count = $index;
     }
 
     echo "My Favourite Receipes (".$count.")";

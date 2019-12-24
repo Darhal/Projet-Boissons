@@ -34,6 +34,14 @@
             NomRecettes.push(element["titre"]);
         });
     </script>
+<style>
+h2{ 
+  padding-left: 3.20em;
+}
+#hierarchy{
+padding-left: 3.20em;
+}
+</style>
 </head>
 
 <body>
@@ -67,7 +75,7 @@
         <div class="top-header-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
-                    <!-- Breaking News -->
+                    <!-- Most searched drinks  -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
@@ -123,24 +131,31 @@
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <!-- Nav Start -->
+                            <!-- Barre de lien -->
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.php">Home</a></li>
-                                            <li><a href="../User/Register/index.html">Sign up</a></li>
-                                            <li><a href="../User/Login/index.html">Login</a></li>
-                                            <li><a href="receipe-post.php">Receipes</a></li>
+                                             <li><a href="index.php">Home</a></li>
+                                            <li><a href="receipe-post.php">Recipes</a></li>
                                             <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="logout.php">Log out</a></li>
+                                            <?php 
+                                                if(!isset($_SESSION["username"])) 
+                                                    echo "<li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+                                                else
+                                                    echo "<li><a href=\"logout.php\">Log out</a></li>"; 
+                                            ?>
                                         </ul>
                                     </li>
-                                    <li><a href="../User/Register/index.html">Sign up</a></li>
-                                    <li><a href="../User/Login/index.html">Login</a></li>
-                                    <li><a href="receipe-post.php">Receipies</a></li>
-                                    <li><a href="fav-receipes.php">My Favourite Receipes 
+                                   <?php 
+                                    if(!isset($_SESSION["username"])) 
+                                        echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+                                    else
+                                        echo "<li><a href=\"logout.php\">Log out</a></li>"; 
+                                    ?>
+                                    <li><a href="receipe-post.php">Recipes</a></li>
+                                    <li><a href="fav-receipes.php">My Favourite Recipes 
                                         <?php 
                                             $count = 0;
                                             if (isset($_SESSION["username"])) {
@@ -156,10 +171,7 @@
                                     </a></li>
                                 </ul>
 
-                                <!-- Newsletter Form -->
-                                <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
+                              
 
                             </div>
                             <!-- Nav End -->
@@ -171,7 +183,7 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <!-- ##### Breadcumb Area Start ##### -->
+    <!-- ##### Recipe Area Start ##### -->
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -183,7 +195,7 @@
             </div>
         </div>
     </div>
-    <!-- ##### Breadcumb Area End ##### -->
+    <!-- ##### Recipe Area End ##### -->
     <div class="receipe-post-area section-padding-80">
         <!-- Receipe Post Search -->
         <div class="receipe-post-search mb-80">
@@ -192,12 +204,8 @@
                     <div class="row">
                         <div class="col-12 col-lg-3">
                             <div class = "autocomplete">
-                                <input type="search" id="search" placeholder="Search Receipies"  />
+                                <input type="search" id="search" placeholder="Search Recipes"  />
                             </div>
-                            <!--
-                            onchange="SearchRecepie(this.value);"
-                                onkeyup="this.onchange(this.value);" onpaste="this.onchange(this.value);" oninput="this.onchange(this.value);"
-                            -->
                         </div>
                         <div class="col-12 col-lg-3 text-right">
                             <button type="submit" class="btn delicious-btn">Search</button>
@@ -205,9 +213,11 @@
                     </div>
             </div>
             </form>
-        </div>
-    </div>
-
+</br>
+<?php 
+//If we want to search by aliments
+?>
+   <h2> Search by aliments: (Click on the folder below to expand the hierarchy)</h2>
     <div id="hierarchy">
         <?php
         function PrintCat($cat, $HirTree)
@@ -239,7 +249,11 @@
         ?>
     </div>
 
-    <!-- ##### Best Receipe Area Start ##### -->
+ </div>
+ </div>
+    
+
+    <!-- ##### Search Recipe Area Start ##### -->
     <section class="best-receipe-area" id="best-receipe-area" style="display: none;">
         <div class="container">
             <div class="row">
@@ -253,10 +267,10 @@
             </div>
         </div>
     </section>
-    <!-- ##### Best Receipe Area End ##### -->
+    <!-- ##### Search Recipe Area End ##### -->
 
 
-    <!-- ##### Follow Us Instagram Area Start ##### -->
+      <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
         <div class="container">
             <div class="row">
@@ -269,7 +283,7 @@
         <div class="insta-feeds d-flex flex-wrap">
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta1.jpg" alt="">
+                <img src="img/bg-img/bg2.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -278,7 +292,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta2.jpg" alt="">
+                <img src="../Photos/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -287,7 +301,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta3.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -296,7 +310,25 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta4.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="../Photos/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="img/bg-img/bg7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -306,24 +338,6 @@
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
                 <img src="img/bg-img/insta5.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta6.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>

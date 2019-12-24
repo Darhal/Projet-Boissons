@@ -1,13 +1,21 @@
 function AddToFav(element)
 {
-    if (!element.textContent.includes("Element Added")){
-      console.log(element.textContent);
-      var recepie_id = element.getAttribute("value");
-      $.post("Backend/func_recepie_fav.php", {recepie_id: recepie_id}, 
-        function(data){
-          $("#add-fav-btn").text("Element Added");
-          $("#fav-receipes").text(data);
-        }
-      );
-    }
+  var recepie_id = element.getAttribute("value");
+  if (!element.textContent.includes("Remove From Favourite")){
+    $.post("Backend/func_recepie_fav.php", {recepie_id: recepie_id}, 
+      function(data){
+        console.log(data);
+        $("#add-fav-btn").text("Remove From Favourite");
+        $("#fav-receipes").text(data);
+      }
+    );
+  }else{
+    $.post("Backend/rmv_recepie_fav.php", {recepie_id: recepie_id}, 
+      function(data){
+        console.log(data);
+        $("#add-fav-btn").text("Add Favourite");
+        $("#fav-receipes").text(data);
+      }
+    );
+  }
 }

@@ -23,7 +23,7 @@
         session_start();
         include('Backend/Donnees.inc.php');
         include("../database/database.php");
-
+	//Caractére special 
         $unwanted_array = array(
             'Š' => 'S', 'š' => 's', 'Ž' => 'Z', 'ž' => 'z', 'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A', 'Æ' => 'A', 'Ç' => 'C', 'È' => 'E', 'É' => 'E',
             'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I', 'Ï' => 'I', 'Ñ' => 'N', 'Ò' => 'O', 'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O', 'Ù' => 'U',
@@ -65,7 +65,7 @@
         <div class="top-header-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
-                    <!-- Breaking News -->
+                    <!-- Most searched drinks -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
@@ -120,24 +120,15 @@
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <!-- Nav Start -->
+                            <!-- Barre de lien -->
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.php">Home</a></li>
-                                            <li><a href="../User/Register/index.html">Sign up</a></li>
-                                            <li><a href="../User/Login/index.html">Login</a></li>
-                                            <li><a href="receipe-post.php">Receipes</a></li>
-                                            <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="logout.php">Log out</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="../User/Register/index.html">Sign up</a></li>
-                                    <li><a href="../User/Login/index.html">Login</a></li>
-                                    <li><a href="receipe-post.php">Receipies</a></li>
-                                    <li><a href="fav-receipes.php">My Favourite Receipes 
+                                   <?php if(!isset($_SESSION["username"])) echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+else
+ echo "<li><a href=\"logout.php\">Log out</a></li>"; ?>
+                                    <li><a href="receipe-post.php">Recipes</a></li>
+                                    <li><a href="fav-receipes.php">My Favourite Recipes 
                                         <?php 
                                             $count = 0;
                                             if (isset($_SESSION["username"])) {
@@ -153,10 +144,7 @@
                                     </a></li>
                                 </ul>
 
-                                <!-- Newsletter Form -->
-                                <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
+                              
 
                             </div>
                             <!-- Nav End -->
@@ -165,9 +153,10 @@
                 </div>
             </div>
         </div>
+</br>
     </header>
     <!-- ##### Header Area End ##### -->
-
+</br>
     <section class="best-receipe-area">
         <div class="container">
             <div class="row">
@@ -178,11 +167,12 @@
                 </div>
             </div>
             <div class="receipe-post-area section-padding-80">
-            <!-- Receipe Post Search -->
+            <!-- Profil area -->
             <div class="receipe-post-search mb-80">
                 <div class="container" >
                     <form action="Backend/InfoChange.php" id="catselect" name="catselect" method="POST" style="transform: translate(40%, -20%);">
                         <?php
+				//If user wanna edit his profil
                             $res = $db->query("SELECT * FROM users WHERE username = '".$_SESSION['username']."';");
                             $row = $res->fetchArray();
                         ?>

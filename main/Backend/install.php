@@ -53,3 +53,4 @@
         // remove the lock
         //file_put_contents("lock.txt", "unlocked", LOCK_EX);
     //}
+?>

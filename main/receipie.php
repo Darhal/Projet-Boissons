@@ -61,7 +61,7 @@
         <div class="top-header-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
-                    <!-- Breaking News -->
+                    <!--Most searched drinks -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
@@ -75,7 +75,7 @@
                     </div>
 
 
-                    <!-- Top Social Info -->
+                    <!--Keeping same user session-->
                     <div class="user-profile"></div>
                     <?php
                     if (isset($_SESSION["username"])) {
@@ -116,24 +116,30 @@
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <!-- Nav Start -->
+                             <!-- Barre de lien  -->
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.php">Home</a></li>
-                                            <li><a href="../User/Register/index.html">Sign up</a></li>
-                                            <li><a href="../User/Login/index.html">Login</a></li>
+                                          <li><a href="index.php">Home</a></li>
+                                             <?php if(!isset($_SESSION["username"])) echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+                                                else echo "<li><a href=\"logout.php\">Log out</a></li>"; ?>
                                             <li><a href="receipe-post.php">Receipes</a></li>
-                                            <li><a href="profile.php">My Profile</a></li>
-                                            <li><a href="logout.php">Log out</a></li>
+                                            <?php 
+                                                if(isset($_SESSION["username"])){
+                                                    echo " <li><a href='profile.php'>My Profile</a></li>";
+                                                    echo "<li><a href='logout.php'>Log out</a></li>";
+                                                }
+                                            ?>
                                         </ul>
                                     </li>
-                                    <li><a href="../User/Register/index.html">Sign up</a></li>
-                                    <li><a href="../User/Login/index.html">Login</a></li>
+                                 
+                                   <?php 
+                                    if(!isset($_SESSION["username"])) echo "   <li><a href=\"../User/Register/index.html\">Sign up</a></li> <li><a  href=\"../User/Login/index.html\">Login</a></li>";
+                                    else echo "<li><a href=\"logout.php\">Log out</a></li>"; ?>
                                     <li><a href="receipe-post.php">Receipies</a></li>
-                                    <li><a id="fav-receipes" href="fav-receipes.php">My Favourite Receipes 
+                                    <li><a id = "fav-receipes" href="fav-receipes.php">My Favourite Receipes 
                                         <?php 
                                             $count = 0;
                                             if (isset($_SESSION["username"])) {
@@ -163,7 +169,7 @@
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
-    <!-- Receipe Content Area -->
+    <!-- Recipe Content Area -->
     <div class="receipe-content-area">
         <div class="container">
             <?php
@@ -196,6 +202,7 @@
                         </div>
                         <a value=<?php echo $recepie; ?> onclick="AddToFav(this);" id="add-fav-btn" class="btn delicious-btn">
                             <?php
+				                //If user log in , he can add his favorite recipe
                                 $rec_ids = array();
                 
                                 if (isset($_SESSION["username"])) {
@@ -209,13 +216,13 @@
                                     }
 
                                     if (in_array($recepie, $my_list)){
-                                        echo "Element Added";
+                                        echo "Remove From Favourite";
                                     }else{
                                         echo "Add Favourite";
                                     }
                                 } else if (isset($_COOKIE['fav_recp_len']) && $_COOKIE['fav_recp_len'] != 0) {
                                     if (in_array($recepie, $_COOKIE['fav_recp'])){
-                                        echo "Element Added";
+                                        echo "Remove From Favourite";
                                     }else{
                                         echo "Add Favourite";
                                     }
@@ -229,7 +236,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <!-- Single Preparation Step -->
+                    <!-- Preparation Step -->
                     <?php
                     $preperation = $Recettes[$recepie]['preparation'];
                     $steps = explode(".", $preperation);
@@ -285,7 +292,7 @@
         <div class="insta-feeds d-flex flex-wrap">
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta1.jpg" alt="">
+                <img src="img/bg-img/bg2.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -294,7 +301,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta2.jpg" alt="">
+                <img src="../Photos/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -303,7 +310,7 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta3.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -312,7 +319,25 @@
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="img/bg-img/insta4.jpg" alt="">
+                <img src="../Photos/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="../Photos/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
+                <!-- Icon -->
+                <div class="insta-icon">
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <!-- Single Insta Feeds -->
+            <div class="single-insta-feeds">
+                <img src="img/bg-img/bg7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -322,24 +347,6 @@
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
                 <img src="img/bg-img/insta5.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta6.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta7.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
