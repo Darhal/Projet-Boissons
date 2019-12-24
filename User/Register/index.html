@@ -61,30 +61,17 @@
                             <input type="text" name="bdate" id="bdate" value="" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required />
                             <label for="date" class="form-label">Your Birthdate</label>
                         </div>
-                        <!--div class="form-group">
-                            <div class="select-list">
-                                <select name="time" id="time" required>
-                                    <option value="">Time</option>
-                                    <option value="6pm">6:00 PM</option>
-                                    <option value="7pm">7:00 PM</option>
-                                </select>
-                            </div>
-                        </div-->
                         <div class="form-radio">
-                            <label class="label-radio"> Select Your Gender : </label>
-                            <div class="radio-item-list">
-                                <span class="radio-item">
-                                    <input type="radio" name="sexe-male" value="Male" id="sexe-male" />
-                                    <label for="male">M</label>
-                                </span>
-                                <span class="radio-item">
-                                    <input type="radio" name="sexe-female" value="Female" id="sexe-female" />
-                                    <label for="female">F</label>
-                                </span>
-                                <span class="radio-item active">
-                                    <input type="radio" name="sexe-unknown" value="Unspecified" id="sexe-unknown" />
-                                    <label for="unspecified">U</label>
-                                </span>
+                            <label class="label-radio"> Select Your Gender :</label>
+                            <div class="form-group">
+                                <div class="select-list">
+                                    <select name="sexe" id="sexe">
+                                        <option value="">Unspecified</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -92,10 +79,12 @@
                         <div id="results">
                             <a href="#" class="vertify-booking"> </a> 
                         </div>
-                        <div class="form-submit" style=="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <div class="form-submit" style="transform: translate(0%, -25%);">
                             <input onclick="SubmitSignupData();" type="button" value="Sign Up" class="submit" id="submit" name="submit" />
                             <a class="vertify-booking"> Or You Can Also Login If You Have Account Already: </a> 
                             <input onclick="ClickLogin();" type="button" value="   Login   " class="submit" id="login" name="login" />
+                            <a class="vertify-booking"> You Can Also Go Back To The Main Page: </a> 
+                            <input onclick="window.location.href ='../../main/index.php'" class="submit" type="button" value="Go Back To Main Page" />
                         </div>
                     </form>
                 </div>

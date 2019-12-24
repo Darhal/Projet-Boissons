@@ -241,7 +241,7 @@
                         <div class="top-cta-content">
                             <h3>Fruit Juice</h3>
                             <h6>Simple &amp; Delecious</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="receipe-post.php" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
                 </div>
