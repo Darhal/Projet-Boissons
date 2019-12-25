@@ -38,8 +38,9 @@
     <!-- Preloader -->
     <div id="preloader">
         <i class="circle-preloader"></i>
-        <img src="img/core-img/salad.png" alt="">
+        <img src="../icons/cocktail2.pngg" alt="">
     </div>
+
 
     <!-- Search Wrapper -->
     <div class="search-wrapper">

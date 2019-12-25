@@ -54,7 +54,7 @@ function ShowRecette(aliment) {
       $("#recepies-post").append(
         `<div class='col-12 col-sm-6 col-lg-4'>
           <div class='single-best-receipe-area mb-30'>
-            <img src='`+ img_path + `' onerror="javascript:this.src='../Photos/default.png'">
+            <img src='`+ img_path + `' onerror="javascript:this.src='img/bg-img/default.png'">
             <div class='receipe-content'>
                 <a href='receipie.php?receipie=`+ element + `'>
                     <h5>`+ title + `</h5>

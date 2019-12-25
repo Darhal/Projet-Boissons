@@ -45,13 +45,14 @@ padding-left: 3.20em;
 </head>
 
 <body>
-    <!-- Preloader -->
+   <!-- Preloader -->
     <div id="preloader">
         <i class="circle-preloader"></i>
-        <img src="img/core-img/salad.png" alt="">
+        <img src="../icons/cocktail2.png" alt="">
     </div>
 
-    <!-- Search Wrapper -->
+
+     <!-- Search Wrapper -->
     <div class="search-wrapper">
         <!-- Close Btn -->
         <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -270,7 +271,7 @@ padding-left: 3.20em;
     <!-- ##### Search Recipe Area End ##### -->
 
 
-      <!-- ##### Follow Us Instagram Area Start ##### -->
+    <!-- ##### Follow Us Instagram Area Start ##### -->
     <div class="follow-us-instagram">
         <div class="container">
             <div class="row">
@@ -292,7 +293,7 @@ padding-left: 3.20em;
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -301,7 +302,7 @@ padding-left: 3.20em;
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -310,7 +311,7 @@ padding-left: 3.20em;
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -319,7 +320,7 @@ padding-left: 3.20em;
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -346,6 +347,7 @@ padding-left: 3.20em;
         </div>
     </div>
     <!-- ##### Follow Us Instagram Area End ##### -->
+
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">

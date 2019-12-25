@@ -34,6 +34,13 @@
 
 <body>
 
+     <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="../icons/cocktail2.png" alt="">
+    </div>
+
+
 
        <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -247,7 +254,7 @@ else
                     $img_name = str_replace(' ', '_', $rec["titre"]) . ".jpg";
                     $img_name = strtr($img_name, $unwanted_array);
                     $img_name = ucfirst(strtolower($img_name));
-                    $img_path = "../Photos/alcool/$img_name";
+                    $img_path = "../Photos/$img_name";
                     if (file_exists($img_path)) {
                         echo
                             "<div class='col-12 col-sm-6 col-lg-4'>" .
@@ -311,7 +318,7 @@ $img_name2= str_replace('-','_',  $img_name2);
 $img_name2= str_replace(')', '', $img_name2).".jpg";
 		$img_name2 = strtr($img_name2, $unwanted_array);
                    $img_name2 = ucfirst(strtolower($img_name2));
-		 $img_path2 = "../Photos/sansalcool/$img_name2";
+		 $img_path2 = "img/bg-img/sansalcool/$img_name2";
 		  if(file_exists($img_path2)) {
 				        echo
                             "<div class='col-12 col-sm-6 col-lg-4'>" .
@@ -367,7 +374,7 @@ $img_name2= str_replace(')', '', $img_name2).".jpg";
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Pink_3x6_boisson_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -376,7 +383,7 @@ $img_name2= str_replace(')', '', $img_name2).".jpg";
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Boisson_aux_agrumes_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -385,7 +392,7 @@ $img_name2= str_replace(')', '', $img_name2).".jpg";
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Boisson_sans_alcool_kidicana.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -394,7 +401,7 @@ $img_name2= str_replace(')', '', $img_name2).".jpg";
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="../Photos/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
+                <img src="img/bg-img/sansalcool/Boisson_citron_menthe_sans_alcool.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -421,6 +428,7 @@ $img_name2= str_replace(')', '', $img_name2).".jpg";
         </div>
     </div>
     <!-- ##### Follow Us Instagram Area End ##### -->
+
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
